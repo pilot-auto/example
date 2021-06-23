@@ -22,11 +22,9 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     $path = storage_path('app/public/shot.png');
-    Browsershot::url('https://google.com')->setNodeBinary('/usr/local/bin/node')
-        ->setNpmBinary('/usr/local/bin/npm')->save($path);
+    Browsershot::url('https://google.com')->save($path);
 });
 Route::get('/screen', function () {
     $path = storage_path('app/public/shot.png');
-    Browsershot::url('https://google.com')->setNodeBinary('/usr/local/bin/node')
-        ->setNpmBinary('/usr/local/bin/npm')->timeout(120)->windowSize(640, 480)->save($path);
+    Browsershot::url('https://google.com')->timeout(120)->windowSize(640, 480)->save($path);
 });
