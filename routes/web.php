@@ -21,9 +21,11 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    dd(Browsershot::url('https://google.com')->waitUntilNetworkIdle());
+    dd(Browsershot::url('https://google.com')->setNodeBinary('/usr/local/bin/node')
+        ->setNpmBinary('/usr/local/bin/npm'));
 });
 Route::get('/screen', function () {
     $path = storage_path('app/public/shot.png');
-    Browsershot::url('https://google.com')->noSandbox()->timeout(120)->windowSize(640, 480)->save($path);
+    Browsershot::url('https://google.com')->setNodeBinary('/usr/local/bin/node')
+        ->setNpmBinary('/usr/local/bin/npm')->timeout(120)->windowSize(640, 480)->save($path);
 });
