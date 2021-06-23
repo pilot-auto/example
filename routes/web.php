@@ -21,8 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    dd(Browsershot::url('https://google.com')->setNodeBinary('/usr/local/bin/node')
-        ->setNpmBinary('/usr/local/bin/npm'));
+    $path = storage_path('app/public/shot.png');
+    Browsershot::url('https://google.com')->setNodeBinary('/usr/local/bin/node')
+        ->setNpmBinary('/usr/local/bin/npm')->save($path);
 });
 Route::get('/screen', function () {
     $path = storage_path('app/public/shot.png');
