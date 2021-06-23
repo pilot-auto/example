@@ -26,11 +26,6 @@ Route::get('/test', function () {
 Route::get('/screen', function () {
     $path = storage_path('app/public/shot.png');
     Browsershot::url('https://google.com')
-        ->userAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1')
-        ->windowSize(375, 812)
-        ->deviceScaleFactor(3)
-        ->mobile()
-        ->touch()
-        ->landscape(false)
+        ->waitUntilNetworkIdle()
         ->save($path);
 });
