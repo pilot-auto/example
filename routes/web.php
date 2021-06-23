@@ -26,5 +26,5 @@ Route::get('/test', function () {
 });
 Route::get('/screen', function () {
     $path = storage_path('app/public/shot.png');
-    Browsershot::url('https://google.com')->timeout(120)->windowSize(640, 480)->save($path);
+    Browsershot::url('https://google.com')->setIncludePath('$PATH:/usr/local/lib')->timeout(120)->windowSize(640, 480)->save($path);
 });
