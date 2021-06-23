@@ -25,9 +25,5 @@ Route::get('/test', function () {
 });
 Route::get('/screen', function () {
     $path = storage_path('app/public/shot.png');
-    Browsershot::url('https://google.com')
-        ->waitUntilNetworkIdle()
-        ->setNodeBinary('/usr/local/bin/node')
-        ->setNpmBinary('/usr/local/bin/npm')
-        ->save($path);
+    Browsershot::url('https://google.com')->windowSize(640, 480)->save($path);
 });
